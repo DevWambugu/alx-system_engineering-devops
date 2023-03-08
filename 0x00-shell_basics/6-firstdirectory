@@ -1,1 +1,2 @@
-lmkdir /tmp/my_first_directory/: directory
+#!/bin/bash
+mkdir /tmp/my_first_directory
