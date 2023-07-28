@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# displays all current learning processes in a user oriented format
+# this command gives a detailed list of all running processes
+ps auxf

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# displays all current learning processes in a user oriented format
+processes=$(ps -e -o pid,ppid,comm,args)
+for process in $processes; do
+  pid=$(echo $process | awk '{print $1}')
+  ppid=$(echo $process | awk '{print $2}')
+  name=$(echo $process | awk '{print $3}')
+  # print the process hierachy
+  if [ "$ppid" -gt 1 ]; then
+    echo "$name (PID: $pid)"
+    echo "  Parent: $(echo $processes | grep "^$ppid" | awk '{print $3}')"
+  else
+    echo "$name (PID: $pid)"
+  fi
+done
