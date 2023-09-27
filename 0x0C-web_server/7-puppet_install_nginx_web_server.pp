@@ -23,12 +23,12 @@ file { '/var/www/html/index.html':
   group   => 'root'
 }				  
 
-file_line { 'Set 301 redirection':
-  ensure   => 'present',
-  after    => 'server_name\ _;',
-  path     => '/etc/nginx/sites-available/default',
-  multiple => true,
-  line     => $content,
-  notify   => Exec['restart nginx'],
-  require  => File['/var/www/html/index.html']
+file_line { 'Set 301 redirection and listen on port 80':
+ ensure   => 'present',
+ after    => 'server_name\ _;',
+ path     => '/etc/nginx/sites-available/default',
+ multiple => true,
+ line     => ["$content", "listen 80;"],  # Add 'listen 80;' line
+ notify   => Exec['restart nginx'],
+ require  => File['/var/www/html/index.html']
 }
