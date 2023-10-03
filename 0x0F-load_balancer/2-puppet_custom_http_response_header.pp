@@ -46,4 +46,3 @@ file_line { 'Set X-Served-By header':
    notify   => Exec['restart nginx'],
    require  => File['/var/www/html/index.html']
 }
-}
