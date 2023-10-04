@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Allows incoming traffic on port 80 so that our nginx server can listen on that port
+sudo ufw allow 80/tcp
+sudo systemctl restart nginx
