@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Uses what you did for task #0, make your fix short and sweet
-sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo ufw allow 80/tcp
 sudo pkill -1 nginx
