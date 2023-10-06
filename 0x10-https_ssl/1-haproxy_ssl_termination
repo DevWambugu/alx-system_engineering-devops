@@ -34,7 +34,7 @@ defaults
 	errorfile 504 /etc/haproxy/errors/504.http
 
 frontend  ndonga-frontend-http
-        bind *:80
+        bind *:443
         mode http
 	http-request set-header X-Forwarded-Proto http
         default_backend ndonga-backend
