@@ -47,5 +47,5 @@ frontend ndonga-frontend-https
 
 backend ndonga-backend
         balance roundrobin
-        server 311364-web-01 54.237.54.125:80 check
-        server 311364-web-02 52.86.88.220:80 check
+        server 311364-web-01 100.25.48.51 check
+        server 311364-web-02 52.86.88.220 check
