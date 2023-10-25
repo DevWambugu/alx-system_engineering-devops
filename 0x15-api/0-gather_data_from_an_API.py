@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+'''This script  returns information about his/her
+TODO list progress using RestApi'''
 import requests
 import sys
 
