@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 '''This script  returns information about his/her
 TODO list progress using RestApi'''
+import csv
 import requests
 import sys
-import csv
 
 
 if __name__ == '__main__':
