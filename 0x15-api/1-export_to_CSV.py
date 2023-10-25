@@ -30,18 +30,18 @@ if __name__ == '__main__':
     completed_tasks = total_tasks - non_completed
     str = ("Employee {emp_name} is done with tasks" +
            "({completed_tasks}/{total_tasks}): ")
-    print(str.format(emp_name=name, completed_tasks=completed_tasks,
+    '''print(str.format(emp_name=name, completed_tasks=completed_tasks,
                      total_tasks=total_tasks))
-    '''print the the complete tasks'''
-    for elem in res_todo:
+    print the the complete tasks'''
+    '''for elem in res_todo:
         if elem.get('completed') is True:
-            print('\t', elem.get('title'))
+            print('\t', elem.get('title'))'''
     '''write to the csv file'''
     csv_filename = 'USER_ID.csv'
     with open(csv_filename, 'w', newline='') as csvfile:
         csv_writer = csv.writer(csvfile)
-        csv_writer.writerow(["USER_ID", "USERNAME",
-                             "TASK_COMPLETED_STATUS", "TASK_TITLE"])
+        '''csv_writer.writerow(["USER_ID", "USERNAME",
+                             "TASK_COMPLETED_STATUS", "TASK_TITLE"])'''
         for todo in res_todo:
             user_id = employee_id
             username = name
