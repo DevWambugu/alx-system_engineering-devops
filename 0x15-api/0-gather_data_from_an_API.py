@@ -5,12 +5,12 @@ import sys
 
 if __name__ == '__main__':
     try:
-        employee_id = int(argv[1])
+        employee_id = int(sys.argv[1])
     except ValueError:
         exit()
 
     base_url = 'https://jsonplaceholder.typicode.com'
-    user_url = '{api}/users/{id}'.format(api=base_url, id=emp_id)
+    user_url = '{api}/users/{id}'.format(api=base_url, id=employee_id)
     todo_url = '{user_url}/todos'.format(user_url=user_url)
 
     '''get the user's response'''
@@ -25,8 +25,8 @@ if __name__ == '__main__':
     non_completed = sum([elem['completed'] is False for elem in res])
     '''get completed tasks'''
     completed_tasks = total_tasks - non_completed
-    str = ("Employee {emp_name}
-           is done with tasks({completed_tasks}/{total_tasks}): ")
+    str = ("Employee {emp_name} is done with tasks" +
+           "({completed_tasks}/{total_tasks}): ")
     print(str.format(emp_name=name, completed_tasks=completed_tasks,
                      total_tasks=total_tasks))
     '''print the the complete tasks'''
