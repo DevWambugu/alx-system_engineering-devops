@@ -8,17 +8,21 @@ import requests
 
 def top_ten(subreddit):
     '''top 10 hot posts listed'''
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    url = f"https://www.reddit.com/r/{subreddit}/hot.json"
     headers = {
-        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/bdov_)"
+        "User-Agent": "Python/requests"
         }
     params = {
         "limit": 10
         }
     response = requests.get(url, headers=headers, params=params,
                             allow_redirects=False)
-    if response.status_code == 404:
+    if response.status_code in [302, 404]:
         print("None")
     else:
-        results = response.json().get("data")
-        [print(c.get("data").get("title")) for c in results.get("children")]
+        results = response.json().get("data", {}).get("children", [])
+        for post in results:
+            post_data = post.get("data", {})
+            title = post_data.get("title")
+            if title:
+                print(title)
