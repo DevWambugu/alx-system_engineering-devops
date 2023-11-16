@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Script reloads Gunicorn in a graceful way.
+GUNICORN_PROCESS="myapp_gunicorn"
+if pgrep -f "$GUNICORN_PROCESS" > /dev/null; then
+	kill -HUP "$(pgrep -f "$GUNICORN_PROCESS")"
+fi
