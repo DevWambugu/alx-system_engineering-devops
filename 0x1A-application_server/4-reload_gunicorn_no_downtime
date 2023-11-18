@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 # Script reloads Gunicorn in a graceful way.
-ps aux | grep gunicorn | awk '{ print $2 }' | xargs kill -HUP
+worker_pids=$(pgrep gunicorn)
+
+if [[ -n "$worker_pids" ]]; then
+    # Send SIGHUP signal to each worker process
+    for pid in $worker_pids; do
+	    kill -HUP "$pid"
+    done
+fi
